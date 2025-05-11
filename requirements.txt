@@ -72,8 +72,6 @@ python-dotenv==1.0.0
 pytz==2024.2
 PyYAML==6.0.2
 qdrant-client==1.11.3
-# Editable install with no version control (reactive-ai==0.1.0)
--e /Users/ktanti/Projects/reactive-ai
 redis==5.0.1
 regex==2024.9.11
 requests==2.32.3
