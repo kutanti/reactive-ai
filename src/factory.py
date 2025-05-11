@@ -5,6 +5,7 @@ from src.enums.scraper_type_enum import ScraperTypeEnum
 from src.scraper.pdf.pdfScraper import PdfScraper
 from src.scraper.csv.csvScraper import CsvScraper
 from src.scraper.html.htmlScraper import HTMLScraper
+from src.scraper.md.mdScrapper import MDScraper
 
     # Sample usage of the enum VectorStoreProvider
 def get_vector_store_provider(provider: VectorStoreProvider):
@@ -26,9 +27,11 @@ def get_scraper(scraper_type: ScraperTypeEnum):
         return CsvScraper()
     elif scraper_type == ScraperTypeEnum.HTML:
         return HTMLScraper()
+    elif scraper_type == ScraperTypeEnum.MarkDown:
+        return MDScraper()
     else:
         return "Unknown scraper type."
 
 # Example usage
-scraper_type = ScraperTypeEnum.HTML
+scraper_type = ScraperTypeEnum.MarkDown
 print(get_scraper(scraper_type))

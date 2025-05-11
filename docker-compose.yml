@@ -32,3 +32,11 @@ services:
       - "9092:9092"
     depends_on:
       - zookeeper
+  api:
+    build:
+      context: ./src/api
+    container_name: api
+    ports:
+      - "8081:8081"
+    depends_on:
+      - kafka

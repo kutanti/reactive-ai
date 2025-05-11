@@ -3,11 +3,6 @@ import json
 
 class KafkaProducerService:
     def __init__(self, kafka_server='localhost:9092'):
-        """
-        Initializes the KafkaProducer instance.
-
-        :param kafka_server: The Kafka broker address (default is 'localhost:9092').
-        """
         # Initialize the KafkaProducer when the class is instantiated
         self.producer = KafkaProducer(
             bootstrap_servers=kafka_server,  # Kafka broker address
@@ -15,12 +10,6 @@ class KafkaProducerService:
         )
 
     def send_message(self, topic_name, message):
-        """
-        Sends a message to the specified Kafka topic.
-
-        :param topic_name: The name of the Kafka topic.
-        :param message: The message to be sent (should be serializable to JSON).
-        """
         try:
             # Send the message to the specified Kafka topic
             self.producer.send(topic_name, value=message)
@@ -33,9 +22,6 @@ class KafkaProducerService:
             print(f"Failed to send message to topic '{topic_name}': {e}")
 
     def close(self):
-        """
-        Closes the KafkaProducer instance.
-        """
         self.producer.close()
 
 # Example usage

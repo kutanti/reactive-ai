@@ -25,7 +25,8 @@ class AppConfig:
     )
     scraper_type: ScraperTypeEnum = (
         ScraperTypeEnum.PDF if os.environ.get("SCRAPER_TYPE") == "PDF" 
-        else ScraperTypeEnum.CSV if os.environ.get("SCRAPER_TYPE") == "CSV" 
+        else ScraperTypeEnum.CSV if os.environ.get("SCRAPER_TYPE") == "CSV"
+        else ScraperTypeEnum.MarkDown if os.environ.get("SCRAPER_TYPE") == "MD"
         else ScraperTypeEnum.HTML
     )
     collectionName=os.environ.get("COLLECTION_NAME", "indian-stocks")
@@ -33,3 +34,6 @@ class AppConfig:
     twillio_auth_token=os.environ.get("TWILLIO_AUTH_TOKEN")
     twillio_whatsapp_number=os.environ.get("TWILLIO_WHATSAPP_NUMBER")
     twillio_recipient_whatsapp_number=os.environ.get("TWILLIO_RECIPIENT_WHATSAPP_NUMBER")
+    
+    qdrant_cloud_url=os.environ.get("QDRANT_CLOUD_URL")
+    qdrant_cloud_key=os.environ.get("QDRANT_CLOUD_KEY")

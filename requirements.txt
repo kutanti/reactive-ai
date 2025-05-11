@@ -96,3 +96,5 @@ uvicorn==0.23.2
 Werkzeug==3.0.4
 wikipedia==1.4.0
 yarl==1.14.0
+markdown
+google-cloud

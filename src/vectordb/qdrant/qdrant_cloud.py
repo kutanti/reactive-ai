@@ -1,12 +1,14 @@
 from qdrant_client import QdrantClient
 from src.vectordb.vectordb import VectorDB
+from src.config import AppConfig
 
 class QdrantCloud(VectorDB):
     
     def __init__(self):
+        self.appConfig = AppConfig()
         self.client = QdrantClient(
-            url="https://6c4f8cd3-0bd5-47b0-8e67-69227a494b07.europe-west3-0.gcp.cloud.qdrant.io:6333", 
-            api_key="EbDNSZLePkd2RNHNnlMUGWOP0e1T8NjwFUW0-7x6elNshb5pCmBZEA",
+            url=self.appConfig.qdrant_cloud_url, 
+            api_key=self.appConfig.qdrant_cloud_key,
         )
 
     def create_collection(self, collection_name: str, vector_size: int):
